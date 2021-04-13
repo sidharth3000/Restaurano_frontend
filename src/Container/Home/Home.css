@@ -1,0 +1,115 @@
+.home_parallax {
+     background-image: url('../../background/chefs.jpg');
+    min-height: 620px; 
+
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .home_name{
+      color: white;
+      font-size: 100px;
+      text-align: center;
+      padding-top: 200px;
+      align-items: center;
+      z-index: 2;
+      font-family: 'Asap', sans-serif;
+  }
+
+  .home_cursive{
+    font-family: 'Playball', cursive;
+    color: brown;
+}
+  
+
+  .home_discover{
+    font-family: 'Asap', sans-serif;
+      text-align: center;
+      border: 2px solid #CD0A00;
+      margin: 5px;
+      
+  }
+
+  .home_desc{
+    font-family: 'Asap', sans-serif;
+    font-size: 12px;
+  }
+
+  .home_cardholder{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .home_discover_img{
+      height: 100px;
+  }
+
+  .home_card{
+      margin: 30px;
+      padding: 30px;
+      transition: 0.3s all;
+      text-decoration: none;
+  }
+
+  .link{
+      text-decoration: none;
+      color: black;
+  }
+
+  .home_card:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.616);
+    cursor: pointer;
+  }
+
+  .chefs{
+      text-align: center;
+      margin: 40px 0px;
+      /* background-color: black; */
+      /* color: white; */
+  }
+
+  .home_team_head{
+    font-size: 40px;
+    color: #CD0A00;
+    padding-bottom: 30px;
+    font-family: 'Playball', cursive;
+    font-weight: bold;
+  }
+
+  .home_discover_head{
+      font-size: 40px;
+      padding-top: 30px;
+      color: #CD0A00;
+      font-weight: bold;
+      font-family: 'Playball', cursive;
+  }
+
+  .home_time{
+      font-size: 30px;
+
+      padding: 5px;
+      text-decoration: none;
+  }
+
+  .chef_card{
+      border: 2px solid  #CD0A00;
+      margin: 20px;
+      padding: 5px;
+      padding-top: 35px;
+      background-color: brown;
+  }
+
+  .chef_name{
+      font-size: 20px;
+      font-weight: bold;
+      font-family: 'Asap', sans-serif;
+      color: white;
+  }
+
+  .home_expert{
+    font-family: 'Playball', cursive;
+  }
+
+

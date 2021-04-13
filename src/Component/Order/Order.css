@@ -1,0 +1,35 @@
+.order{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    padding: 30px;
+    margin: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-family: 'Asap', sans-serif; font-family: 'Asap', sans-serif; font-family: 'Asap', sans-serif; font-family: 'Asap', sans-serif;
+    transition: all 0.3s;
+}
+
+.order:hover{
+    padding: 40px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.664);
+}
+
+.order_item{
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.order_price{
+    font-family: 'Playball', cursive;
+    font-size: 50px;
+    color: brown;
+    justify-self: end;
+}
+
+.order_lower{
+    padding: 5px;
+}
+
+.order_detail{
+    padding: 2px;
+}

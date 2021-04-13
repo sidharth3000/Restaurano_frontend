@@ -1,0 +1,106 @@
+.navbar_img{
+    display: inline;
+    height: 100px;
+}
+
+.navbar_container{
+    display: grid;
+    grid-template-columns: 0.5fr 3fr 1fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+    background-color: rgba(34, 34, 34, 0.76);
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    border-bottom: 1px solid white;
+    color: white;
+    justify-items: center;
+    z-index: 20000;
+}
+
+.lite{
+  display: grid;
+  grid-template-columns: 0.5fr 3fr 1fr 1fr 1fr 1fr 1fr;
+  align-items: center;
+  background-color: rgba(34, 34, 34, 0.966);
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  border-bottom: 1px solid white;
+  color: white;
+  justify-items: center;
+  z-index: 20000;
+}
+
+.navbar_name{
+    display: inline;
+    bottom: 50px;
+    font-size: 40px;
+    justify-self: start;
+    font-family: 'Squada One';
+    /* padding-left: 2px; */
+}
+
+
+.navbar_links{
+    padding: 10px 10px;
+    text-decoration: none;
+    font-family: 'Asap', sans-serif;
+}
+
+.navbar_container a{
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.navbar_container a:hover{
+    
+    border-bottom: 3px solid white; 
+}
+
+.navbar_container a.active,
+.navbar_container a:active{
+    font-weight: bold;
+    color: brown;
+    background-color: white;
+}
+
+
+
+
+
+
+
+.dropbtn {
+    padding: 10px 10px;
+    text-decoration: none;
+    font-family: 'Asap', sans-serif;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  .dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+/* .dropdown:hover .dropbtn {background-color: #3e8e41;} */
+  

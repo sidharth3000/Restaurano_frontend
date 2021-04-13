@@ -1,0 +1,13 @@
+.res{
+    text-align: center;
+    padding: 40px;
+    margin: 50px 200px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    font-family: 'Asap', sans-serif;
+    font-size: 20px;
+}
+
+.res_specific{
+    color: brown;
+    font-weight: bold;
+}

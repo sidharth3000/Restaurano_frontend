@@ -1,0 +1,49 @@
+.auth{
+    background-image: url('../../background/eat.jpg');
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    text-align: center;
+}
+
+.auth_form{
+    text-align: center;
+}
+
+.auth_mode{
+    border: 2px solid brown;
+    margin: 10px 155px;
+    padding: 10px 0px;
+    transition: 0.3s all;
+}
+
+.auth_mode:hover{
+    background-color: brown;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.auth_error{
+    top: 0px;
+    background-color: rgba(224, 11, 11, 0.829);
+    color: white;
+    z-index: 1000;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    right: auto;
+}
+
+
+
+
+

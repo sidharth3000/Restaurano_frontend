@@ -1,0 +1,15 @@
+.orderss{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+}
+
+.orders_heading{
+    font-size: 50px;
+    color: white;
+    padding: 10px;
+    padding-left: 45px;
+    background-color: brown;
+    margin-top: 120px;
+    font-family: 'Playball', cursive;
+}

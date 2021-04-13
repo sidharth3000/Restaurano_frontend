@@ -1,0 +1,91 @@
+.menu{
+    margin: 120px 0px;
+
+}
+
+.meal_name{
+    font-size: 50px;
+    color: white;
+    padding: 10px;
+    padding-left: 45px;
+    background-color: brown;
+    font-family: 'Playball', cursive;
+}
+
+.menu_cards{
+   margin-top: 20px;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+}
+
+.child_modal{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.menu_right{
+    position: relative;
+    font-family: 'Asap', sans-serif;
+}
+
+.modal_image{
+    height: 300px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.modal_item{
+    color: black;
+    font-size: 40px;
+    
+}
+
+.modal_price{
+    color: black;
+}
+
+.modal_continue{
+    display: inline;
+    background-color: brown;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    margin-top: 100%;
+    position: absolute;
+    bottom: 5px;
+    right: 0px;
+    color: white;
+    transition: all 0.3s;
+}
+
+.modal_continue:hover{
+    background-color: #C20500;
+}
+
+.modal_cancel{
+    display: inline;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 5px;
+    right: 120px;
+    color: brown;
+    cursor: pointer;
+}
+
+.child_modal a{
+    color: black;
+    text-decoration: none;
+
+}
+
+.modal_desc{
+    font-size: 10px;
+    padding-top: 50px;
+}
+
+

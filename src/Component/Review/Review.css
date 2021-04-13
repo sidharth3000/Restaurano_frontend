@@ -1,0 +1,22 @@
+.review_view{
+    display: grid;
+    grid-template-columns: 1fr ;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    padding: 30px;
+    margin: 10px 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-family: 'Asap', sans-serif;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.review_view:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.623);
+}
+
+.star{
+    color: gold;
+    font-size: 30px;
+    padding: 5px;
+}

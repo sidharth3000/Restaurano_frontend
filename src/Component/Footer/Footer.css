@@ -1,0 +1,31 @@
+.footer{
+    padding: 50px;
+    background-color: black;
+    color: white;
+}
+
+.footer_logo{
+    height: 100px;
+    display: inline;
+}
+
+.footer_name{
+    font-family: 'Squada One';
+    padding-left: 10px;
+}
+
+.footer_p{
+    padding: 50px 250px 0px 0px;
+    font-family: 'Asap', sans-serif;
+}
+
+.handle{
+    font-size: 20px;
+    padding: 20px 10px;
+}
+
+.footer_strip{
+    margin-top: 10px;
+    height: 5px;
+    background-color: red;
+}

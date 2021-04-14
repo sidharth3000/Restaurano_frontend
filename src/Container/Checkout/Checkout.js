@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import axios from "../../axios-orders";
+import axios from 'axios';
 import {Link, Redirect} from 'react-router-dom';
 
 import './Checkout.css';
@@ -48,7 +48,7 @@ class Checkout extends Component {
             delivery: this.state.delivery,
             userId: this.props.userId
         }
-        axios.post('/orders.json?auth=' + this.props.token, order)
+        axios.post('http://localhost:4000/api/orders/ORDER' , order)
             .then(response => {
                 this.setState({loading: false});
                 this.setState({ordered: true})
@@ -66,7 +66,8 @@ class Checkout extends Component {
         }
 
         let checkout =  <div className="back">
-        
+
+                        <div className="headd">Restaurano</div>
                         <Modal show={true} >
                             <div className="checkout">
                                 <div className="checkout_name">Checkout</div>
@@ -100,7 +101,8 @@ class Checkout extends Component {
         }
         return(
             <div>
-{orders}
+               
+            {orders}
                 <Backdrop show={true}/>
                {checkout}
             </div>

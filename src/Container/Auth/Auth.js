@@ -58,7 +58,7 @@ class Auth extends Component {
                                 <input className="checkout_input" type="password" placeholder="Password" onChange={this.onPasswordChangeHandler}></input>
                             </div>
 
-                            <div className="checkout_order" onClick={this.onSubmitHandler}>Submit</div>
+                            <div className="checkout_order" onClick={this.onSubmitHandler}>{this.state.signup ? "SING-UP" : "SIGN-IN"}</div>
                            <Link to="/"> <div className="checkout_cancel">Cancel</div></Link>
                         </div>
                     </Modal>
@@ -71,7 +71,7 @@ class Auth extends Component {
 
         if(this.props.error){
             errMssg = (
-                <HeadShake><div className="auth_error">{this.props.error.message}</div></HeadShake>
+                <HeadShake><div className="auth_error">"Error in loging in. Please try agin with correct creds.</div></HeadShake>
             )
         }
 
@@ -81,6 +81,7 @@ class Auth extends Component {
                 {authRedirect}
                 <Backdrop show={true}/>
                 {errMssg}
+                <div className="headd" style={{"color": "red"}}>Restaurano</div>
                 {form}
 
             </div>

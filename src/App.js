@@ -18,11 +18,9 @@ import * as actions from './Store/actions/actions';
 
 class App extends Component {
 
-  componentDidMount () {
-    this.props.onTryAutoSignup();
-  }
-
   componentDidMount(){
+    this.props.onTryAutoSignup();
+    console.log(">>>>>>>>>>>>>>>>>>>>>")
     document.title = "Resturano"
   }
 
@@ -32,14 +30,14 @@ class App extends Component {
     let routes =  <div>
                    <Route path='/authenticate' component={Auth} exact/>
                     <Route path='/feedback' component={Feedback} exact/>
-                    <Route path='/checkout' component={Checkout} exact/>
-                    <Route path='/orders' component={Orders} exact/>
+                    {/* <Route path='/checkout' component={Checkout} exact/> */}
+                    {/* <Route path='/orders' component={Orders} exact/> */}
                     <Route path="/breakfast" component={Breakfast} exact/>
                     <Route path="/lunch" component={Lunch} exact/>
                     <Route path="/dinner" component={Dinner} exact/>
                     <Route path="/" exact component={Home} exact/>
-                    <Route path="/reservation" component={Reservation} exact/>
-                    <Route path="/show" component={ShowRes} exact/>
+                    {/* <Route path="/reservation" component={Reservation} exact/> */}
+                    {/* <Route path="/show" component={ShowRes} exact/> */}
                   </div>
      if(this.props.isAuth){
        routes=   <div>

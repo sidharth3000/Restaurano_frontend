@@ -37,7 +37,7 @@
     background-color: rgba(224, 11, 11, 0.829);
     color: white;
     z-index: 1000;
-    width: 100%;
+    /* width: 100%; */
     text-align: center;
     padding: 10px;
     right: auto;

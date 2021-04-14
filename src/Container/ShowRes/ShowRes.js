@@ -17,13 +17,19 @@ class Home extends Component {
     }
 
     componentDidMount () {
-        const query = '?auth=' + this.props.token + '&orderBy="userId"&equalTo="' + this.props.userId + '"';
-        axios.get('/reservation.json' + query)
+       
+        const userId = localStorage.getItem('userId');
+
+        axios.get('http://localhost:4000/api/res/GETRES',  {
+            headers: {
+              id:  userId 
+            }
+           })
         .then(res => {
             const fetchedres = [];
-            for(let key in res.data) {
+            for(let key in res.data.result) {
                 fetchedres.push({
-                    ...res.data[key],
+                    ...res.data.result[key],
                     id: key
                 });
             }

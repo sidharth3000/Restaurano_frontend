@@ -46,7 +46,7 @@ export const authSuccess = (token, userId) => {
 export const authFail = (error) => {
     return{
         type: actionTypes.AUTH_FAIL,
-        error: error
+        error: "error"
     }
 }
 
@@ -80,33 +80,62 @@ export const checkAuthTimeout = (expirationTime) => {
 };
 
 
+
 export const auth = (email, password, signup) => {
     return dispatch => {
         console.log("started");
         dispatch(authStart());
         const authData = {
             email: email,
-            password: password,
-            returnSecureToken: true
+            password: password
         };
-        let url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBtXkQYcIrKoVi8jEs2tWQUXRwHNIGy1Rg';
-        if (!signup) {
-            url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBtXkQYcIrKoVi8jEs2tWQUXRwHNIGy1Rg'
+       
+        if(signup){
+            axios.post('http://localhost:4000/api/users/Register', authData)
+            .then(response => {
+                if(response.data.error=="t"){
+                    dispatch(authFail("error!!!"));
+                   
+                }else{
+                    const exp = new Date(new Date().getTime() + 3600 * 1000)
+                    localStorage.setItem('token', response.data.token);
+                    localStorage.setItem('exp', exp);
+                    localStorage.setItem('userId', response.data.result[0].id);
+                    dispatch(authSuccess(response.data.token, response.data.result[0].id));
+                    dispatch(checkAuthTimeout(3600));
+                    console.log(response.data.token, response.data.result[0].id)
+                }
+                
+            })
+            .catch(error => {
+                dispatch(authFail("error!!!"));
+            })
+        }else{
+            axios.post('http://localhost:4000/api/users/Login', authData)
+            .then(response => {
+                if(response.data.error=="t"){
+                    dispatch(authFail("error!!!"));
+                   
+                }else{
+                    console.log(response.data);
+                    const exp = new Date(new Date().getTime() + 3600 * 1000)
+                    localStorage.setItem('token', response.data.token);
+                    localStorage.setItem('exp', exp);
+                    localStorage.setItem('userId', response.data.id);
+                    dispatch(authSuccess(response.data.token, response.data.id));
+                    dispatch(checkAuthTimeout(3600));
+                    console.log(response.token, response.id)
+                }
+               
+            })
+            .catch(error => {
+                dispatch(authFail("error!!!"));
+            })
         }
-        axios.post(url, authData)
-        .then(response => {
-            const exp = new Date(new Date().getTime() + response.data.expiresIn * 1000)
-            localStorage.setItem('token', response.data.idToken);
-            localStorage.setItem('exp', exp);
-            localStorage.setItem('userId', response.data.localId);
-            dispatch(authSuccess(response.data.idToken, response.data.localId));
-            dispatch(checkAuthTimeout(response.data.expiresIn));
-        })
-        .catch(error => {
-            dispatch(authFail(error.response.data.error));
-        })
+       
     }
 }
+
 
 export const authCheckState = () => {
     return dispatch => {

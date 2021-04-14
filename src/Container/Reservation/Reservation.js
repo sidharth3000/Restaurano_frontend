@@ -28,14 +28,13 @@ class Reservation extends Component {
     }
 
     postResHandler = () => {
-        console.log("clicked")
         this.setState({loading: true});
         const res = {
             members: this.state.members,
             date: this.state.date,
             userId: this.props.userId
         }
-        axios.post('/reservation.json?auth=' + this.props.token, res)
+        axios.post('http://localhost:4000/api/res/RES' , res)
             .then(response => {
                 this.setState({loading: false});
                 this.setState({redirected: true})

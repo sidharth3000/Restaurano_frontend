@@ -1,6 +1,6 @@
 import React, { Component, useImperativeHandle } from 'react';
 import { connect } from 'react-redux';
-import axios from '../../axios-orders'
+import axios from 'axios';
 
 import './Orders.css';
 import Navbar from '../../Component/Navbar/Navbar'
@@ -17,13 +17,22 @@ class Home extends Component {
     }
 
     componentDidMount () {
-        const query = '?auth=' + this.props.token + '&orderBy="userId"&equalTo="' + this.props.userId + '"';
-        axios.get( '/orders.json' + query)
+
+        window.scrollTo(0,0)
+
+        const userId = localStorage.getItem('userId');
+
+        axios.get( 'http://localhost:4000/api/orders/GETORDERS', {
+            headers: {
+              id:  userId 
+            }
+           })
         .then(res => {
+            console.log(res);
             const fetchedOrders = [];
-            for(let key in res.data) {
+            for(let key in res.data.result) {
                 fetchedOrders.push({
-                    ...res.data[key],
+                    ...res.data.result[key],
                     id: key
                 });
             }
@@ -39,19 +48,19 @@ class Home extends Component {
         let content =  <div className="orderss">
                             {this.state.orders.map(order =>(
                                 <Order 
-                                        key={order.id}
-                                        item={order.item}
-                                        name={order.name}
-                                        address={order.address}
-                                        phone={order.phone_number}
-                                        price={order.price}
-                                        delivery={order.delivery}
+                                    key={order.id}
+                                    item={order.item}
+                                    name={order.name}
+                                    address={order.address}
+                                    phone={order.phone_number}
+                                    price={order.price}
+                                    delivery={order.delivery}
                                 />
                             ))}
                         </div>
 
-        if(this.state.loading){
-            content = <Spinner/>
+            if(this.state.loading){
+                content = <Spinner/>
         }
 
         return(

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from "../../axios-orders";
+import axios from 'axios';
 import HeadShake from 'react-reveal/HeadShake';
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
@@ -24,30 +24,30 @@ class Feedback extends Component {
 
     componentDidMount () {
 
-        const query = '?auth=' + this.props.token + '&orderBy="userId"&equalTo="' + this.props.userId + '"';
-        axios.get( '/orders.json' + query)
-        .then(res => {
-            const fetchedOrders = [];
-            for(let key in res.data) {
-                fetchedOrders.push({
-                    ...res.data[key],
-                    id: key
-                });
-            }
-            this.setState({loading: false, orders: fetchedOrders})
-        })
-        .catch(err =>{
-            this.setState({loading: false})
-        })
+        // const query = '?auth=' + this.props.token + '&orderBy="userId"&equalTo="' + this.props.userId + '"';
+        // axios.get( '/orders.json' + query)
+        // .then(res => {
+        //     const fetchedOrders = [];
+        //     for(let key in res.data) {
+        //         fetchedOrders.push({
+        //             ...res.data[key],
+        //             id: key
+        //         });
+        //     }
+        //     this.setState({loading: false, orders: fetchedOrders})
+        // })
+        // .catch(err =>{
+        //     this.setState({loading: false})
+        // })
 
 
 
-        axios.get('/reviews.json')
+        axios.get('http://localhost:4000/api/feed/GETFEED')
         .then(res => {
             const fetchedReviews = [];
-            for(let key in res.data) {
+            for(let key in res.data.result) {
                 fetchedReviews.push({
-                    ...res.data[key],
+                    ...res.data.result[key],
                     id: key
                 });
             }
@@ -68,13 +68,13 @@ class Feedback extends Component {
 
     postReviewHandler = () => {
         
-       if( (this.state.orders.length) > 0){
+    //    if( (this.state.orders.length) > 0){
         this.setState({loading: true});
         const review = {
             body: this.state.review,
             stars: this.state.stars
         }
-        axios.post('/reviews.json', review)
+        axios.post('http://localhost:4000/api/feed/Feedback', review)
             .then(response => {
                 this.setState({loading: false});
                 window.scrollTo(0,0)
@@ -82,11 +82,11 @@ class Feedback extends Component {
             .catch(error => {
                 this.setState({loading: false});
             });
-       }
+    //    }
 
-       else{
-           alert("You need to order something first to write a review!")
-       }
+    //    else{
+    //        alert("You need to order something first to write a review!")
+    //    }
 
        
     }
@@ -122,21 +122,21 @@ class Feedback extends Component {
             posts=<Spinner/>
         }
        
-        const query = '?auth=' + this.props.token + '&orderBy="userId"&equalTo="' + this.props.userId + '"';
-        axios.get( '/orders.json' + query)
-        .then(res => {
-            const fetchedOrders = [];
-            for(let key in res.data) {
-                fetchedOrders.push({
-                    ...res.data[key],
-                    id: key
-                });
-            }
-            this.setState({loading: false, orders: fetchedOrders})
-        })
-        .catch(err =>{
-            this.setState({loading: false})
-        })
+        // const query = '?auth=' + this.props.token + '&orderBy="userId"&equalTo="' + this.props.userId + '"';
+        // axios.get( '/orders.json' + query)
+        // .then(res => {
+        //     const fetchedOrders = [];
+        //     for(let key in res.data) {
+        //         fetchedOrders.push({
+        //             ...res.data[key],
+        //             id: key
+        //         });
+        //     }
+        //     this.setState({loading: false, orders: fetchedOrders})
+        // })
+        // .catch(err =>{
+        //     this.setState({loading: false})
+        // })
 
         return(
             

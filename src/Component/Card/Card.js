@@ -27,13 +27,10 @@ class Card extends Component {
                     <div className="card_price">&#x20B9;{this.props.cost}</div>
 {veg}
                     <div className="card_info">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting
-                    try. Lorem Ipsum has been the industry's standard dummy text ever since
-                    1500s, when an unknown printer took a galley of type and scrambled it to make
-                    type specimen book.
+                  {this.props.desc}
                     </div>
                     
-                    <div onClick={this.props.onBuy}> <div className="buy" onClick={() => this.props.onOrderHandler(this.props.name, this.props.cost)} >Add To Basket</div></div>
+                    <div onClick={this.props.onBuy}> <div className="buy" onClick={() => this.props.onOrderHandler(this.props.name, this.props.cost, this.props.desc)} >Add To Basket</div></div>
                    
                 </div>
             </div>
@@ -51,7 +48,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onOrderHandler: (name,price) => dispatch(actions.purchaseCont(name, price)),
+        onOrderHandler: (name,price,desc) => dispatch(actions.purchaseCont(name, price, desc)),
         onBuy : () => dispatch(actions.buyChange())
     }
 }

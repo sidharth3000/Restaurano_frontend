@@ -15,7 +15,8 @@ const initialState = {
     loading: false,
     buying: false,
     count: 1,
-    reserved: false
+    reserved: false,
+    desc: null
 };
 
 const reducer = (state = initialState, action) => {
@@ -27,7 +28,8 @@ const reducer = (state = initialState, action) => {
                 name: action.name,
                 image: action.image,
                 price: action.price,
-                purchasing: true
+                purchasing: true,
+                desc: action.desc
             };
 
         case actionsTypes.PURCHASE_CANCEL:

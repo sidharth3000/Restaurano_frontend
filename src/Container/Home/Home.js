@@ -13,6 +13,7 @@ import './Home.css'
 class Home extends Component {
 
     componentDidMount() {
+        window.scrollTo(0,0);
         this.props.onBuycancel();
       }
 
@@ -41,9 +42,7 @@ class Home extends Component {
                             <div className='home_card'>
                             <img className='home_discover_img' src={'Assets/breakfast.png'}></img>
                             <div className='home_time'>Breakfast</div>
-                            <div className="home_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                 sed do eiusmod tempor incididunt ut labore et dolore magna
-                                  aliqua.</div>
+                            <div className="home_desc">Our pasta is fresh, our wine is old.</div>
                             </div>
                         </Link>
 
@@ -52,9 +51,7 @@ class Home extends Component {
                         <div className='home_card'>
                             <img className='home_discover_img' src={'Assets/lunch.png'}></img>
                             <div className='home_time'>Lunch</div>
-                            <div className="home_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                 sed do eiusmod tempor incididunt ut labore et dolore magna
-                                  aliqua.</div>
+                            <div className="home_desc">We’ve got something for everyone, fuel for your life.</div>
                         </div>
                     </Link>
 
@@ -62,9 +59,7 @@ class Home extends Component {
                         <div className='home_card'>
                             <img className='home_discover_img' src={'Assets/dinner.png'}></img>
                             <div className='home_time'>Dinner</div>
-                            <div className="home_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                 sed do eiusmod tempor incididunt ut labore et dolore magna
-                                  aliqua.</div>
+                            <div className="home_desc">No one ever regrets a healthy meal!.</div>
                         </div>
                     </Link>
                     </div>

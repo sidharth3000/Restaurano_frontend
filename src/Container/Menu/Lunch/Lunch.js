@@ -14,6 +14,11 @@ import * as actions from '../../../Store/actions/actions';
 
 class Dinner extends Component {
 
+    componentDidMount () {
+        window.scrollTo(0,0);
+        this.props.onOrderCancelHandler();
+    }
+
     render () {
     
         return(
@@ -30,9 +35,7 @@ class Dinner extends Component {
                         <div className="menu_right">
                             <div className="modal_item">{this.props.item_name}</div>
                             <div className="modal_price">&#x20B9;{this.props.price}</div>
-                            <div className="modal_desc"> Lorem Ipsum is simply dummy text of the printing and typesetting
-                                try. Lorem Ipsum has been the industry's standard dummy text ever since
-                                1500s
+                            <div className="modal_desc"> {this.props.desc}
                             </div>
 
                             <Link to={this.props.isAuth ? "/checkout" : "/authenticate"}><div className="modal_continue" >{this.props.isAuth ? "Continue" : "Authenticate"}</div></Link>
@@ -48,10 +51,14 @@ class Dinner extends Component {
                 <div className="meal_name">Lunch</div>
 
                 <div className="menu_cards">
-                        <Card name="Pasta" cost="150" veg="1"/>
-                        <Card name="Fried_Rice" cost="200" veg="1"/>
-                        <Card name="Pizza" cost="450" veg="1"/>
-                        <Card name="Fried_Chicken" cost="300" veg="0"/>
+                <Card name="Pasta" cost="150" veg="1" desc="a desi or spicy twist to the authentic Italian pasta to meet the
+                                    taste buds of spice lovers."/>
+                        <Card name="Fried_Rice" cost="200" veg="1" desc="This classic fried rice is loaded with fresh mixed
+                                    veggies and aromatic spices for an incredibly hearty,
+                                    flavourful vegan dish."/>
+                        <Card name="Pizza" cost="450" veg="1" desc="Hot, cheesy pizza loaded with your favourite veggies
+                                    and bursting cheese from everywhere."/>
+                        <Card name="Fried_Chicken" cost="300" veg="0" desc="Always a picnic favorite, this deep fried chicken is delicious either hot or cold."/>
                 </div>
 
                </div>
@@ -68,7 +75,8 @@ const mapStateToProps = state => {
         item_name: state.name,
         price: state.price,
         show: state.purchasing,
-        isAuth: state.token !== null
+        isAuth: state.token !== null,
+        desc: state.desc
     }
 }
 

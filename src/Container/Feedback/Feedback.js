@@ -20,26 +20,13 @@ class Feedback extends Component {
         reviews: [],
         orders: []
     }
+
+
        
 
     componentDidMount () {
 
-        // const query = '?auth=' + this.props.token + '&orderBy="userId"&equalTo="' + this.props.userId + '"';
-        // axios.get( '/orders.json' + query)
-        // .then(res => {
-        //     const fetchedOrders = [];
-        //     for(let key in res.data) {
-        //         fetchedOrders.push({
-        //             ...res.data[key],
-        //             id: key
-        //         });
-        //     }
-        //     this.setState({loading: false, orders: fetchedOrders})
-        // })
-        // .catch(err =>{
-        //     this.setState({loading: false})
-        // })
-
+        window.scrollTo(0,0);
 
 
         axios.get('http://localhost:4000/api/feed/GETFEED')

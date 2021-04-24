@@ -14,7 +14,10 @@ import * as actions from '../../../Store/actions/actions';
 
 class Breakfast extends Component {
 
-  
+    componentDidMount () {
+        window.scrollTo(0,0);
+        this.props.onOrderCancelHandler();
+    }
 
     render () {
         
@@ -33,9 +36,7 @@ class Breakfast extends Component {
                             <div className="modal_item">{this.props.item_name}</div>
                             <div className="modal_price">&#x20B9;{this.props.price}</div>
 
-                            <div className="modal_desc"> Lorem Ipsum is simply dummy text of the printing and typesetting
-                                try. Lorem Ipsum has been the industry's standard dummy text ever since
-                                1500s
+                            <div className="modal_desc"> {this.props.desc}
                             </div>
 
                             <Link to={this.props.isAuth ? "/checkout" : "/authenticate"} onClick={this.props.onBuy}><div className="modal_continue" >{this.props.isAuth ? "Continue" : "Authenticate"}</div></Link>
@@ -51,10 +52,14 @@ class Breakfast extends Component {
                 <div className="meal_name">Breakfast</div>
 
                 <div className="menu_cards">
-                        <Card name="coffee" cost="60" veg="1"/>
-                        <Card name="omelete" cost="100" veg="2"/>
-                        <Card name="sandwich" cost="150" veg="1"/>
-                        <Card name="pancakes" cost="120" veg="1"/>
+                <Card name="coffee" cost="60" veg="1" desc="A refreshing cup to keep you going all day long."/>
+                        <Card name="omelete" cost="100" veg="2" desc="An all time favourite breakfast dish in India, is jazzed up with tangy tomatoes,
+                                    pepper , spices and other ingredients to make it mouth-watering."/>
+                        <Card name="sandwich" cost="150" veg="1" desc="What's better than trying a Veg Grilled Sandwich to reminisce the popular
+                                    Maharashtrian street food?"/>
+                        <Card name="pancakes" cost="120" veg="2" desc="look no further because a steaming stack of
+                                    perfectly soft, best fluffy pancakes are right
+                                    here! weekends will never be the same again."/>
                 </div>
 
                </div>
@@ -72,13 +77,14 @@ const mapStateToProps = state => {
         price: state.price,
         show: state.purchasing,
         isAuth: state.token !== null,
-        buying: state.buying
+        buying: state.buying,
+        desc: state.desc
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        onOrderHandler: (name,price) => dispatch(actions.purchaseCont(name, price)),
+        onOrderHandler: (name,price, desc) => dispatch(actions.purchaseCont(name, price, desc)),
         onOrderCancelHandler: () => dispatch(actions.purchaseCancel()),
         onBuy : () => dispatch(actions.buyChange())
 

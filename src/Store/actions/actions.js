@@ -2,11 +2,12 @@ import axios from 'axios';
 
 import * as actionTypes from './actiontypes';
 
-export const purchaseCont = (name, price) => {
+export const purchaseCont = (name, price, desc) => {
     return {
         type: actionTypes.PURCHASE_CONT,
         name: name,
-        price: price
+        price: price,
+        desc: desc
     };
 }
 
